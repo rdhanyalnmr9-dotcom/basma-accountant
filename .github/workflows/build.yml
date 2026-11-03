@@ -1,3 +1,4 @@
+
 name: Build Flutter APK
 
 on:
@@ -12,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Java
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
@@ -20,7 +21,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.16.0'
+          flutter-version: '3.19.6'
           channel: 'stable'
 
       - name: Install Dependencies
@@ -30,7 +31,7 @@ jobs:
         run: flutter build apk --release
 
       - name: Upload APK
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: basma-accountant-apk
           path: build/app/outputs/flutter-apk/app-release.apk
